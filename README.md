@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+REACT REDUX
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+its use to state management
 
-## Available Scripts
+earliar we use props for sending data but its unidirectional  (top to bottom)
 
-In the project directory, you can run:
+Redux Store use to store a data so later we use that data in any component 
 
-### `npm start`
+Redux Basic:-
+Action,Reducer,State,store
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Action:- pure Object 
+Action Creater:- function  e.g function for increment decrement
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Reducer :- Reducer Function Can take current state and An Action as argument and return a new state
 
-### `npm test`
+Store:- The redux store bring state,action and reducer that make up your app
+you have onlly single store in a redux apps
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Every Redux store has single root reducer function
 
-### `npm run build`
+redux is responsible to  to combined multiple reducer  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+UseSelectors :- its use to retrive  state  from store 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Ui -----------> ACTIONS------------> REDUCERS ---------------------> STORE ---------->Ui
+dispatch()      type:"ADD"	         action.type                     store={store}    update state
+add(data)       payload:number       action.payload				                      useSelector()
+                                     (update state) 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+npm i react-redux
+npm i redux
 
-### `npm run eject`
+--------------------------------------
+React Thunk
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+npm i redux-thunk
+                                                                                
+By default, Redux’s actions are dispatched synchronously, which is a problem for any non-trivial(having some variables or terms that are not equal to zero or an identity)
+app that needs to communicate with an external API or perform side effects. Redux also allows for middleware that sits between an action being dispatched and the action reaching the reducers.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+There are two very popular middleware libraries that allow for side effects and asynchronous actions: Redux Thunk and Redux Saga.
